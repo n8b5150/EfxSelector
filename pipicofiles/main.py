@@ -19,7 +19,7 @@ l_loop4 = Pin(6, Pin.OUT) #9
 
 #led/relay initial states
 l_ready.value(0)
-l_bypass.value(1)
+l_bypass.value(0)
 l_tuner.value(0)
 l_loop1.value(0)
 l_loop2.value(0)
@@ -49,16 +49,16 @@ print(init_delay.value())
 
 #define led blink function
 def blink():
-    l_pre.value(0)
+    l_toggle.value(0)
     led.value(0)
     time.sleep(0.125)
-    l_pre.value(1)
+    l_toggle.value(1)
     led.value(1)
     time.sleep(0.125)
-    l_pre.value(0)
+    l_toggle.value(0)
     led.value(0)
     time.sleep(0.125)
-    l_pre.value(1)
+    l_toggle.value(1)
     led.value(1)
     
     
@@ -97,7 +97,7 @@ print("last state = ", last_state)
 
 #define save preset function
 async def save_pre(file):
-    if Pin(15).value() == 0:
+    if Pin(13).value() == 0:
         global preset1, preset2, preset3, preset4
         #get loop status and save to preset object
         pre = {
