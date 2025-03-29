@@ -15,7 +15,7 @@ except ImportError:
 
 class Pushbutton:
     debounce_ms = 50
-    long_press_ms = 1000
+    long_press_ms = 2000
     double_click_ms = 400
 
     def __init__(self, pin, suppress=False, sense=None):
